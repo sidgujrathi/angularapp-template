@@ -1,6 +1,7 @@
 node_modules/
 bower_components/
 app/src/assets/libs
+app/dist/assets/libs
 tmp
 .DS_Store
 .idea
