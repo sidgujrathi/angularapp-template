@@ -1,0 +1,22 @@
+{
+  "name": "angularapp-template",
+  "description": "A basic Angularjs app directory and files template with Bootstrap, SASS, Gulp build settings",
+  "main": "index.html",
+  "authors": [
+    "Siddharth Gujrathi"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "template",
+    "boilerplate",
+    "skeleton"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
