@@ -60,6 +60,9 @@ angularapp-template changes this location through the `.bowerrc` file.  Putting 
 it easier to serve the files by a webserver.*
 
 ### Run the Application
-
-You can put app/dist folder in any webserver you like, for ex. WAMP or XAMP.
+Once you have installed all dependencies, run gulp command for one time initial build.
+```
+gulp
+```
+Then,y ou can put app/dist folder in any webserver you like, for ex. WAMP or XAMP.
 And browse to the app at `http://localhost/app/dist/index.html`.
