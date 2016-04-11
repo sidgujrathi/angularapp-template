@@ -1,0 +1,1 @@
+app.module("angularapp-template").value("userid", {val:"0"});

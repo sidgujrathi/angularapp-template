@@ -14,6 +14,7 @@ var gulp = require('gulp'),
  gulp.task('watch',['build-lib'],function(){
    gulp.watch(['app/src/component/**/*','app/src/app.module.js','app/src/index.html'],['code-build']);	
    gulp.watch('app/src/assets/scss/**/*.scss', ['build-css']);
+   gulp.watch('app/src/shared/*', ['share-component-build']);
 });
 
 //Gulp task to copy all minified libs in src to distribution
@@ -49,7 +50,16 @@ gulp.task ('code-build',function(){
 	    .pipe(gulp.dest('app/dist/'));	
 	
 	return merge(controller,module,service,index);	
-}); 
+});
+
+gulp.task ('share-component-build',function(){
+	return gulp.src('app/src/shared/**/*')
+	   .pipe(sourcemaps.init())
+	   .pipe(uglify()) 
+	   .pipe(sourcemaps.write())
+	   .pipe(gulp.dest('app/dist/shared/'));
+});
+
 gulp.task('build-css', function() {
   return gulp.src('app/src/assets/scss/**/*.scss')
     .pipe(sourcemaps.init())  // Process the original sources
