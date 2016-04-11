@@ -15,6 +15,9 @@ var gulp = require('gulp'),
    gulp.watch(['app/src/component/**/*','app/src/app.module.js','app/src/index.html'],['code-build']);	
    gulp.watch('app/src/assets/scss/**/*.scss', ['build-css']);
    gulp.watch('app/src/shared/*', ['share-component-build']);
+   gulp.watch(['app/src/assets/js/*.*'],['build-js']);
+   gulp.watch(['app/src/assets/img/**/*'],['build-img']);
+
 });
 
 //Gulp task to copy all minified libs in src to distribution
@@ -22,6 +25,7 @@ gulp.task('build-lib', function(){
 	return gulp.src(['app/src/assets/libs/**/*.min.js','app/src/assets/libs/**/*.min.css'])
 			.pipe(gulp.dest('app/dist/assets/libs/'));
 }); 
+
 
 gulp.task ('code-build',function(){
 	var module = gulp.src('app/src/*.module.js')
@@ -47,9 +51,12 @@ gulp.task ('code-build',function(){
 
 	var index = gulp.src('app/src/index.html')
 		.pipe(concat('index.html'))
-	    .pipe(gulp.dest('app/dist/'));	
+	    .pipe(gulp.dest('app/dist/'));
+
+	var component_files = gulp.src('app/src/component/**/*.html')
+	    .pipe(gulp.dest('app/dist/component/'));  	
 	
-	return merge(controller,module,service,index);	
+	return merge(controller,module,service,index,component_files);	
 });
 
 gulp.task ('share-component-build',function(){
@@ -66,4 +73,18 @@ gulp.task('build-css', function() {
       .pipe(sass())
     .pipe(sourcemaps.write()) // Add the map to modified source.
     .pipe(gulp.dest('app/dist/assets/css/'));
+});
+
+gulp.task('build-js',function(){
+	return gulp.src('app/src/assets/js/*.js')
+	   .pipe(sourcemaps.init())
+		//.pipe(concat('main.js'))
+	    .pipe(uglify()) 
+	    .pipe(sourcemaps.write())
+		.pipe(gulp.dest('app/dist/assets/js/'));
+});
+
+gulp.task('build-img',function(){
+	return gulp.src('app/src/assets/img/*.*')
+	    .pipe(gulp.dest('app/dist/assets/img/'));
 });
