@@ -25,32 +25,27 @@ gulp.task ('code-build',function(){
 	var module = gulp.src('app/src/*.module.js')
 	   .pipe(sourcemaps.init())
 		.pipe(concat('app.module.js'))
-	      //only uglify if gulp is ran with '--type production'
-	      .pipe(gutil.env.type === 'production' ? uglify() : gutil.noop()) 
+	    .pipe(uglify()) 
 	    .pipe(sourcemaps.write())
 		.pipe(gulp.dest('app/dist/'));
 
 	var controller = gulp.src('app/src/component/**/*.controller.js')
 	   .pipe(sourcemaps.init())
 		.pipe(concat('app.controllers.js'))
-	      //only uglify if gulp is ran with '--type production'
-	      .pipe(gutil.env.type === 'production' ? uglify() : gutil.noop()) 
+	    .pipe(uglify()) 
 	    .pipe(sourcemaps.write())
 		.pipe(gulp.dest('app/dist/'));
 
 	var service = gulp.src('app/src/component/**/*.service.js')
 	   .pipe(sourcemaps.init())
 		.pipe(concat('app.services.js'))
-	      //only uglify if gulp is ran with '--type production'
-	    .pipe(gutil.env.type === 'production' ? uglify() : gutil.noop()) 
+	    .pipe(uglify()) 
 	    .pipe(sourcemaps.write())
 		.pipe(gulp.dest('app/dist/'));	
 
 	var index = gulp.src('app/src/index.html')
 		.pipe(concat('index.html'))
-	      //only uglify if gulp is ran with '--type production'
-	    .pipe(gutil.env.type === 'production' ? uglify() : gutil.noop()) 
-		.pipe(gulp.dest('app/dist/'));	
+	    .pipe(gulp.dest('app/dist/'));	
 	
 	return merge(controller,module,service,index);	
 }); 
