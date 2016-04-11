@@ -1,0 +1,1 @@
+app.module("startup-template").factory('startupService',function(){});

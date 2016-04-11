@@ -1,4 +1,4 @@
-angular.app("angular-template").controller("startupController",function(){
+angular.module("angular-template").controller("startupController",function(){
 	var vm = this;
-	vm.welcom ="Welcome to AngularJS app template";
+	vm.welcome ="Welcome to AngularJS App template";
 });
