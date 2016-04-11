@@ -2,8 +2,9 @@ var gulp = require('gulp'),
     gutil = require('gulp-util')
     concat = require('gulp-concat')
     sourcemaps = require('gulp-sourcemaps')
-    uglify = require('gulp-uglify')
-    var merge = require('merge-stream');
+    uglify = require('gulp-uglify'),
+    sass = require('gulp-sass'),
+    merge = require('merge-stream');
 
 
 //gulp tasks entrypoint
@@ -13,6 +14,7 @@ var gulp = require('gulp'),
  gulp.task('watch',function(){
    gulp.watch(['app/src/assets/libs/**/*'],['build-lib']);
    gulp.watch(['app/src/component/**/*','app/src/app.module.js','app/src/index.html'],['code-build']);	
+   gulp.watch('app/src/assets/scss/**/*.scss', ['build-css']);
 });
 
 //Gulp task to copy all minified libs in src to distribution
@@ -49,3 +51,10 @@ gulp.task ('code-build',function(){
 	
 	return merge(controller,module,service,index);	
 }); 
+gulp.task('build-css', function() {
+  return gulp.src('app/src/assets/scss/**/*.scss')
+    .pipe(sourcemaps.init())  // Process the original sources
+      .pipe(sass())
+    .pipe(sourcemaps.write()) // Add the map to modified source.
+    .pipe(gulp.dest('app/dist/assets/css/'));
+});
