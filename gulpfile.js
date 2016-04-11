@@ -11,8 +11,7 @@ var gulp = require('gulp'),
  gulp.task('default',['watch']);
 
 //Gulp watch task for all changes in src code
- gulp.task('watch',function(){
-   gulp.watch(['app/src/assets/libs/**/*'],['build-lib']);
+ gulp.task('watch',['build-lib'],function(){
    gulp.watch(['app/src/component/**/*','app/src/app.module.js','app/src/index.html'],['code-build']);	
    gulp.watch('app/src/assets/scss/**/*.scss', ['build-css']);
 });
