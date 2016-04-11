@@ -1,1 +1,1 @@
-app.module("startup-template").factory('startupService',function(){});
+angular.module("startup-template").factory('startupService',function(){});
