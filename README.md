@@ -64,5 +64,5 @@ Once you have installed all dependencies, run gulp command for one time initial 
 ```
 gulp
 ```
-Then,y ou can put app/dist folder in any webserver you like, for ex. WAMP or XAMP.
+Then, you can put app/dist folder in any webserver you like, for ex. WAMP or XAMP.
 And browse to the app at `http://localhost/app/dist/index.html`.
