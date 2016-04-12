@@ -26,7 +26,8 @@ gulp.task('build-lib', function(){
 			.pipe(gulp.dest('app/dist/assets/libs/'));
 }); 
 
-
+//Minify, concate all Controllers and models in one File.
+//Put all HTML file in distribution directory
 gulp.task ('code-build',function(){
 	var module = gulp.src('app/src/*.module.js')
 	   .pipe(sourcemaps.init())
@@ -66,7 +67,7 @@ gulp.task ('share-component-build',function(){
 	   .pipe(sourcemaps.write())
 	   .pipe(gulp.dest('app/dist/shared/'));
 });
-
+//Compiling SASS file to css, Miniinify, concat and ready for distr
 gulp.task('build-css', function() {
   return gulp.src('app/src/assets/scss/**/*.scss')
     .pipe(sourcemaps.init())  // Process the original sources
@@ -74,7 +75,7 @@ gulp.task('build-css', function() {
     .pipe(sourcemaps.write()) // Add the map to modified source.
     .pipe(gulp.dest('app/dist/assets/css/'));
 });
-
+// Miniinify, concat all JS and ready for distr
 gulp.task('build-js',function(){
 	return gulp.src('app/src/assets/js/*.js')
 	   .pipe(sourcemaps.init())
@@ -83,7 +84,7 @@ gulp.task('build-js',function(){
 	    .pipe(sourcemaps.write())
 		.pipe(gulp.dest('app/dist/assets/js/'));
 });
-
+//Get all images and put them to dist
 gulp.task('build-img',function(){
 	return gulp.src('app/src/assets/img/*.*')
 	    .pipe(gulp.dest('app/dist/assets/img/'));
