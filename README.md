@@ -4,7 +4,7 @@ This project is an application skeleton for a typical AngularJS web app. You can
 
 The template contains a sample AngularJS application controller and is preconfigured to install the Angular framework and a bunch of development tools for instant web development which includes SASS, bootstrap, Jquery.
 
-The template has ideal folder structure for angularjs web app on basis of best practices.
+The template has ideal folder structure for angularjs web app based on best practices.
 
 ## Getting Started
 
