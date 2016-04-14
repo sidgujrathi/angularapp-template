@@ -69,7 +69,7 @@ gulp.task ('share-component-build',function(){
 });
 //Compiling SASS file to css, Miniinify, concat and ready for distr
 gulp.task('build-css', function() {
-  return gulp.src('app/src/assets/scss/**/*.scss')
+  return gulp.src('app/src/assets/scss/*.scss')
     .pipe(sourcemaps.init())  // Process the original sources
       .pipe(sass())
     .pipe(sourcemaps.write()) // Add the map to modified source.
