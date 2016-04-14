@@ -66,3 +66,8 @@ gulp
 ```
 Then, you can put app/dist folder in any webserver you like, for ex. WAMP or XAMP.
 And browse to the app at `http://localhost/app/dist/index.html`.
+
+### TODO List:
+
+  * Add gulp task to minify all html files
+  * add local web server support by adding http-server package
